@@ -1,0 +1,26 @@
+.App{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    min-width: 50%;
+    min-height: 200px;
+    background-color: #c1d8f056;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: 	#00b8ff;
+}
+
+.countdown-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 200px;
+}
