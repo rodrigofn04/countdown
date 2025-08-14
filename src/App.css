@@ -24,3 +24,16 @@
     gap: 2rem;
     height: 200px;
 }
+
+.countdown-container .description{
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    min-width: 80px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

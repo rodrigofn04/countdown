@@ -1,26 +1,27 @@
-import React, { use } from 'react'
-import Title from './components/Title'
-import Counter from './components/Counter'
 import law from './assets/LAW.jpg'
-import useCountdown from './hooks/useCountdown'
-import {Outlet} from 'react-router-dom'
+import { useContext, useMemo } from 'react'
+import { CountdownContext } from './context/CountdownContext'
+import { Outlet, useLocation } from 'react-router-dom'
 
 import './App.css'
 
 function App() {
-  const [day, hour, minute, second] = useCountdown("Jan 1, 2026 00:00:00")
+  const { event } = useContext(CountdownContext)
+
+  let eventImage = null
+
+  const location = useLocation()
+
+  eventImage = location.pathname === '/' ? law : (event.image ? event.image : law)
+
+  const appStyle = useMemo(() => ({
+    backgroundImage: `url(${eventImage})`
+  }), [eventImage])
 
   return (
     <>
-        <div className="App" style={{ backgroundImage: `url(${law})` }}> 
+        <div className="App" style={appStyle}> 
           <div className="container">
-            <Title title="Contagem Regressiva para 2026" />
-          <div className="countdown-container">
-            <Counter title="Dias" number={day} />
-            <Counter title="Horas" number={hour} />
-            <Counter title="Minutos" number={minute} />
-            <Counter title="Segundos" number={second} />
-            </div>
             <Outlet />
           </div>
         </div>
